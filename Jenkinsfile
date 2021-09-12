@@ -10,8 +10,7 @@ pipeline {
                 sh 'mvn clean sonar:sonar'
               }
             }
-        }
-        
+        }        
         stage("Quality Gate") {
             steps {
               timeout(time: 1, unit: 'HOURS') {
@@ -26,7 +25,6 @@ pipeline {
                 sh 'mvn clean install package'
             }
         }
-
         stage('Building Image with Docker') {
         
             steps {
