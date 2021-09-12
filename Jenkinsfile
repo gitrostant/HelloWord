@@ -5,10 +5,8 @@ pipeline {
         stage('build & SonarQube analysis') { 
             steps {
                 echo 'Testing Source Code'
-                withSonarQubeEnv('sonarqube') {
-                  withMaven(maven: 'Maven 3.5'){  
+                withSonarQubeEnv('sonarqube') {  
                 sh 'mvn clean sonar:sonar'
-               }
              }
             }
            }        
