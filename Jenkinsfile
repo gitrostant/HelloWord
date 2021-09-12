@@ -2,15 +2,15 @@ pipeline {
     agent any
 
     stages {
-        stage('build & SonarQube analysis') {
-        
+        stage('build & SonarQube analysis') { 
             steps {
                 echo 'Testing Source Code'
                 withSonarQubeEnv('sonarqube') {
-                    
+                  withMaven(maven: 'Maven 3.5'){  
                 sh 'mvn clean sonar:sonar'
                }
              }
+            }
         }        
         stage("Quality Gate") {
             steps {
