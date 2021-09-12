@@ -5,10 +5,16 @@ pipeline {
             steps {
                 withSonarQubeEnv('sonarqube') {  
                 sh 'mvn clean sonar:sonar'
-                sh 'sleep 50'
              }
             }
-           }        
+           }
+
+        stage('SLEEP') { 
+            steps {
+                sh 'sleep 25'
+             }
+            }
+
         stage("Quality Gate") {
             steps {
               timeout(time: 5, unit: 'MINUTES') {
