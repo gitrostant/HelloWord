@@ -7,9 +7,10 @@ pipeline {
             steps {
                 echo 'Testing Source Code'
                 withSonarQubeEnv('sonarqube') {
+                    
                 sh 'mvn clean sonar:sonar'
-              }
-            }
+               }
+             }
         }        
         stage("Quality Gate") {
             steps {
