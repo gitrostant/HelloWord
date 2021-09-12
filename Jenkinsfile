@@ -6,7 +6,7 @@ pipeline {
         
             steps {
                 echo 'Testing Source Code'
-                withSonarQubeEnv('sonarmvn') {
+                withSonarQubeEnv('sonarqube') {
                 sh 'mvn clean sonar:sonar'
               }
             }
