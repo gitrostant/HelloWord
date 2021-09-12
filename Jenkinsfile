@@ -5,7 +5,7 @@ pipeline {
             steps {
                 withSonarQubeEnv('sonarqube') {  
                 sh 'mvn clean sonar:sonar'
-                sh 'sleep 25'
+                sh 'sleep 50'
              }
             }
            }        
