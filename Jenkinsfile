@@ -25,10 +25,15 @@ pipeline {
         stage('Building Artifact with Maven') {
         
             steps {
-                echo 'Building package with Maven'
                 sh 'mvn clean install package'
             }
         }
+        stage('Building Image with Docker') {
+        
+            steps {
+                 sh 'docker build -t --name gitrostant/stephanietest:${env.BUILD_ID} .'
+              }
+            }
        
         }
     }
