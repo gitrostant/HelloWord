@@ -11,7 +11,7 @@ pipeline {
 
         stage('SLEEP') { 
             steps {
-                sh 'sleep 10'
+                sh 'sleep 25'
              }
             }
 
@@ -20,6 +20,13 @@ pipeline {
               timeout(time: 5, unit: 'MINUTES') {
                 waitForQualityGate abortPipeline: true
               }
+            }
+        }
+        stage('Building Artifact with Maven') {
+        
+            steps {
+                echo 'Building package with Maven'
+                sh 'mvn clean install package'
             }
         }
        
