@@ -31,7 +31,7 @@ pipeline {
         stage('Building Image with Docker') {
         
             steps {
-                 sh 'docker build -t --name gitrostant/stephanietest:${env.BUILD_ID} .'
+                 sh "docker build -t --name gitrostant/stephanietest:${env.BUILD_ID} ."
               }
             }
        
