@@ -34,6 +34,13 @@ pipeline {
                  sh "docker build -t gitrostant/stephanietest:${env.BUILD_ID} ."
               }
             }
+            stage('Pushing Image to DockerHub') {
+        
+            steps {
+                 sh 'docker login -u gitrostant -p 1002Alro!@'
+                 sh "docker push gitrostant/stephanietest:${env.BUILD_ID}"
+              }
+            }
        
         }
     }
