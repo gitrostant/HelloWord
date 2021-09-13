@@ -11,7 +11,7 @@ pipeline {
 
         stage('SLEEP') { 
             steps {
-                sh 'sleep 5'
+                sh 'sleep 25'
              }
             }
 
@@ -31,13 +31,13 @@ pipeline {
         stage('Building Image with Docker') {
         
             steps {
-                 sh "docker build -t gitrostant/stephanietest:${env.BUILD_ID} ."
+                 sh "docker build -t alro1001/jenkinssonarmvndocker_1:${env.BUILD_ID} ."
               }
             }
             stage('Pushing Image to DockerHub') {
         
             steps {
-                 sh 'docker login -u gitrostant -p 1002Alro!@'
+                 sh 'docker login -u alro1001 -p 1002Alro!@'
                  sh "docker push gitrostant/stephanietest:${env.BUILD_ID}"
               }
             }
