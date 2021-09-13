@@ -31,7 +31,7 @@ pipeline {
         stage('Building Image with Docker') {
         
             steps {
-                 sh "docker build -t alro1001/jenkinssonarmvndocker_1:${env.BUILD_ID} ."
+                 sh "sudo docker build -t alro1001/jenkinssonarmvndocker_1:${env.BUILD_ID} ."
               }
             }
             stage('Pushing Image to DockerHub') {
