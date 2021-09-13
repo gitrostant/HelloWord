@@ -31,14 +31,14 @@ pipeline {
         stage('Building Image with Docker') {
         
             steps {
-                 sh "sudo docker build -t alro1001/jenkinssonarmvndocker_1:${env.BUILD_ID} ."
+                 sh "docker build -t alro1001/jenkinssonarmvndocker_1:${env.BUILD_ID} ."
               }
             }
             stage('Pushing Image to DockerHub') {
         
             steps {
-                 sh 'docker login -u alro1001 -p 1002Alro!@'
-                 sh "docker push gitrostant/stephanietest:${env.BUILD_ID}"
+                 sh 'sudo docker login -u alro1001 -p 1002Alro!@'
+                 sh "sudo docker push gitrostant/stephanietest:${env.BUILD_ID}"
               }
             }
        
