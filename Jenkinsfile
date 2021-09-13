@@ -38,7 +38,7 @@ pipeline {
         
             steps {
                  sh 'sudo docker login -u alro1001 -p 1002Alro!@'
-                 sh "sudo docker push gitrostant/stephanietest:${env.BUILD_ID}"
+                 sh "sudo docker push alro1001/jenkinssonarmvndocker_1:${env.BUILD_ID}"
               }
             }
        
