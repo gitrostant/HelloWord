@@ -47,7 +47,7 @@ pipeline {
                  sh 'docker stop tomcatcontainer || true'
                  sh 'docker rm tomcatcontainer || true'
                  sh 'docker rmi tomcat || true'
-                 sh 'docker run -itd --name tomcatcontainer -p 8888:8080 tomcat:8.0'
+                 sh "docker run -itd --name tomcatcontainer -p 8888:8080 alro1001/jenkinssonarmvndocker_1:${env.BUILD_ID}"
               }
             }
        
