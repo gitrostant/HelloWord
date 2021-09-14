@@ -41,6 +41,26 @@ pipeline {
                  sh "sudo docker push alro1001/jenkinssonarmvndocker_1:${env.BUILD_ID}"
               }
             }
+                        stage('Deploying Image to Tomcat Server') {
+        
+            steps {
+                 sh 'docker stop tomcatcontainer || true'
+                 sh 'docker rm tomcatcontainer || true'
+                 sh 'docker rmi tomcat || true'
+                 sh 'docker run -itd --tomcatcontainer -p 8888:8080 tomcat:9.0'
+              }
+            }
+       
+        }
+    }
+            }
+            stage('Pushing Image to DockerHub') {
+        
+            steps {
+                 sh 'sudo docker login -u alro1001 -p 1002Alro!@'
+                 sh "sudo docker push alro1001/jenkinssonarmvndocker_1:${env.BUILD_ID}"
+              }
+            }
        
         }
     }
