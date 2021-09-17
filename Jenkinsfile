@@ -37,7 +37,7 @@ pipeline {
             stage('Pushing Image to DockerHub') {
         
             steps {
-                 sh 'sudo docker login -u alro1001 -p 1002Alro!@'
+                 sh 'sudo docker login -u alro1001 -p **********'
                  sh "sudo docker push alro1001/jenkinssonarmvndocker_1:${env.BUILD_ID}"
               }
             }
